@@ -92,7 +92,69 @@ All query results are **sortable** by various criteria.
 
 ---
 
-> Designed for extensibility and clean integration with a user-friendly interface or CLI.
+# ⚠️ Error Handling Guide
+
+This section documents the common error messages, input validation errors, and business rule validation logic for the Album & Song Management System.
+
+---
+
+## ❗ Common Error Messages
+
+| Code                  | Message                                             |
+|-----------------------|-----------------------------------------------------|
+| `ERR_NOT_FOUND`       | The requested resource was not found.              |
+| `ERR_ALREADY_EXISTS`  | The resource already exists.                       |
+| `ERR_INVALID_INPUT`   | One or more input fields are invalid.              |
+| `ERR_DATABASE`        | An internal database error occurred.              |
+| `ERR_OPERATION_FAILED`| The operation could not be completed. Try again.   |
+| `ERR_CONFIRMATION_REQUIRED` | Confirmation required before proceeding.     |
+| `ERR_NO_RESULTS`      | No results found matching the criteria.            |
+
+---
+
+## 🧾 Format Validation Errors
+
+Input validation ensures that users provide data in the correct format.
+
+| Field        | Rule                                      | Error Message                                    |
+|--------------|-------------------------------------------|--------------------------------------------------|
+| `albumName`  | Must be non-empty and alphanumeric        | Album name must be a non-empty string.           |
+| `songName`   | Must be non-empty and alphanumeric        | Song name must be a non-empty string.            |
+| `artist`     | Must be non-empty                         | Artist name cannot be empty.                     |
+| `duration`   | Must be a positive number (minutes)       | Duration must be a valid number greater than 0.  |
+| `genre`      | Must be from a predefined list            | Genre must be one of the allowed categories.     |
+| `trackOrder` | Must be a positive integer (if applicable)| Track order must be a positive number.           |
+| `year`       | Must be a 4-digit year (optional)         | Year must be in YYYY format.                     |
+
+---
+
+## 🧠 Business Rule Validation Errors
+
+These rules enforce domain-specific logic beyond basic format validation.
+
+| Scenario                                      | Error Message                                                  |
+|----------------------------------------------|----------------------------------------------------------------|
+| Creating a duplicate album                    | Album with the same name already exists.                      |
+| Deleting a non-existent album                 | Album not found.                                              |
+| Adding a song to a non-existent album         | Specified album does not exist.                               |
+| Adding a duplicate song                       | This song already exists in the system.                       |
+| Album duration exceeds 80 minutes             | Cannot add song. Album duration limit exceeded.               |
+| Album song count exceeds 30 songs             | Cannot add song. Album is full.                               |
+| Deleting a non-existent song                  | Song not found in the specified album.                        |
+| Searching yields no results                   | No matching songs found.                                      |
+| Genre not recognized                          | Invalid genre selected.                                       |
+| Invalid sorting field                         | Cannot sort by the given key.                                 |
+| Album has no songs                            | Album has no songs to display.                                |
+| Duplicate song name detected (confirmation)   | Multiple songs with this name found. Please confirm details.  |
+
+---
+
+## ✅ Best Practices
+
+- Always validate user inputs before performing operations.
+- Use unique constraints in SQLite to prevent duplicates at the database level.
+- Handle empty results gracefully with user-friendly messages.
+- Confirm potentially destructive actions (e.g., deleting albums with songs).
 
 # References:
 - https://github.com/Italiant/SENG1110/tree/main
