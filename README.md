@@ -1,40 +1,100 @@
 # music-collection
+# 🎵 Album & Song Management System
 
-The program will keep track of up to 4 albums, and up to 5 songs each album. This must be done using an array (not an
-arraylist) to hold the Album objects. Each album will hold up to 5 songs. This must also be done using an array (not an
-arraylist).
-When run, the program will display a menu of actions to the user, including one that exits the program. Until the user
-chooses to exit, the menu is displayed again after each action is completed.
-The program should have the following functionalities:
-1. Will allow the user to create albums.
-The user will specify the album’s name.
-There should be an error message if the album already exists, or if there are already 4 albums.
-2. Will allow the user to enter a new song into an album.
-First, the user will input only the name of the song.
-If there are other songs with the same name, the program should list all the details of all the songs with the same
-name (album, and song details: name, artist, duration, and genre.) and ask the user if they want to continue. If yes,
-the user will input album’s name, song details: name, artist, duration, and genre (note that something – artist,
-duration or gender – must be differet). If there are no songs with the same name, there will be a “continue”
-option, and the user will input album name and song details.
-The program will show an error message if:
-• the user input a song that already exists (2 songs are identical if name, artist, duration and genre are the same),
-OR
-• it is adding a song in an album that exceeds a certain time limit (in song duration times), OR
-• the album does not exist, OR
-• The album is full
-3. Will allow the user to request a list of all songs (and the details of each song) with a specific name.
-4. Will allow the user to request a list of all songs (and the details of each song) from an album.
-5. Will allow the user to request a list of all albums (including all the songs in each album).
-6. Will allow the user to request a list of all songs whose duration is under a certain time (in minutes).
-7. Will allow the user to request a list of all songs of a specific genre.
-The program should show an appropriate message in case the output of functionalities 3, 4, 5, 6, 7 is none.
-8. Will allow the user to delete an album.
-There should be an error message if the album does not exist. 
-9. Will allow the user to delete a song from an album.
-There should be an error message if the album does not exist.
-10. Will allow the user input albums and songs from an external file. This option will be just available in the beginning
-(before the user input albums and/or songs from keyboard). Follow the format of the ReginaCollection.txt.
+A simple yet powerful application for managing music albums and songs using SQLite for persistent and efficient storage.
 
-https://github.com/Italiant/SENG1110/tree/main
-https://github.com/Mohammed-devv/Music-Collection-Manager-Java-OOP-Project/tree/main
-https://www.youtube.com/watch?v=pd-0G0MigUA
+---
+
+## 📁 1. Album Management
+
+### ➕ Create Album
+- Allows users to create an album by specifying its name.
+- ❌ **Error**: Album already exists.
+
+### 🗑️ Delete Album
+- Deletes the specified album and all its associated songs.
+- ❌ **Error**: Album doesn’t exist.
+
+---
+
+## 🎶 2. Song Management
+
+### ➕ Add Song
+1. User inputs a song name.
+2. If duplicate songs exist:
+   - Displays matching songs (with name, artist, duration, genre, album).
+   - Asks for confirmation to proceed.
+3. If confirmed:
+   - Requires album name (must exist).
+   - Requires song details (name, artist, duration, genre).
+
+#### ❌ Errors:
+- Song already exists (same name, artist, duration, genre).
+- Album duration limit exceeded (e.g., max 80 minutes).
+- Album does not exist.
+- Album is full (e.g., max 30 songs).
+
+### 🗑️ Delete Song
+- Removes a song from a specified album.
+
+#### ❌ Error:
+- Album or song doesn’t exist.
+
+---
+
+## 🔍 3. Query Features
+
+All query results are **sortable** by various criteria.
+
+### 🔎 Search by Song Name
+- Lists all songs with a given name + details.
+- 📌 Sortable by: `artist`, `duration`, `album`.
+
+### 💿 List Album Contents
+- Shows all songs in a specific album.
+- 📌 Sortable by: `track order`, `duration`, `name`.
+
+### 📚 List All Albums
+- Displays all albums with song count and total duration.
+- 📌 Sortable by: `name`, `year`, `song count`.
+
+### ⏱️ Filter by Duration
+- Lists all songs shorter than X minutes.
+- 📌 Sortable by: `duration` (asc/desc).
+
+### 🎧 Filter by Genre
+- Lists all songs of a given genre.
+- 📌 Sortable by: `artist`, `album`, `duration`.
+
+### 🕳️ Empty Result Handling
+- Friendly message if no results found.
+
+---
+
+## 📊 4. Statistics
+
+### 📈 Collection Insights
+- **Total Collection Duration**: Sum of all song durations.
+- **Most Common Genre**: Genre appearing most frequently.
+
+### 📉 Album Analytics
+- Shortest and longest album by total duration.
+- Average song duration per album.
+
+---
+
+## 🛠️ 5. SQLite-Specific Enhancements
+
+- ✅ **Automatic Duplicate Prevention**: Unique constraint on `(song, artist, duration, genre)`.
+- ⚡ **Efficient Queries**: Indexed columns for fast filtering and sorting.
+- 💾 **Persistent Storage**: Uses a single `.db` file (no JSON or CSV required).
+- 🔐 **Transaction Safety**: Operations like album deletion cascade to remove linked songs safely.
+
+---
+
+> Designed for extensibility and clean integration with a user-friendly interface or CLI.
+
+# References:
+- https://github.com/Italiant/SENG1110/tree/main
+- https://github.com/Mohammed-devv/Music-Collection-Manager-Java-OOP-Project/tree/main
+- https://www.youtube.com/watch?v=pd-0G0MigUA
