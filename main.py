@@ -1,68 +1,102 @@
+import constants
 
-# Main Menu Choices
-ALBUM_MANAGEMENT = 1
-SONG_MANAGEMENT = 2
-ARTIST_MANAGEMENT = 3
-GENRE_MANAGEMENT = 4
-STATISTIC_MANAGEMENT = 5
-QUIT = -1
+def print_main_menu():
+    print()
+    print('Music Collection - Main Menu')
+    print('------------------------------')
+    print('1: Go To Album Management Menu')
+    print('2: Go To Song Management Menu')
+    print('3: Go To Artist Management Menu')
+    print('4: Go To Genre Management Menu')
+    print('5: Go To Statistic Menu')
+    print('-1: Exit Application')
+    print()
 
-# Album Menu Choices
-CREATE_ALBUM = 1
-DELETE_ALBUM = 2
-GET_ALBUM_DETAILS = 3
-LIST_ALBUMS = 4
-ALBUM_MENU_BACK = -1
+def print_album_menu():
+    print()
+    print('Music Collection - Album Menu')
+    print('------------------------------')
+    print('1: Create Album')
+    print('2: Delete Album')
+    print('3: Search Album')
+    print('4: Get List of Albums')
+    print('-1: Go Back To Main Menu')
+    print()
 
-# Song Menu Choices
-ADD_SONG = 1
-DELETE_SONG = 2
-SEARCH_SONG = 3
-FILTER_BY_GENRE = 4
-FILTER_BY_DURATION = 5
-SONG_MENU_BACK = -1
+def print_song_menu():
+    print()
+    print('Music Collection - Song Menu')
+    print('------------------------------')
+    print('1: Create Song')
+    print('2: Delete Delete')
+    print('3: Search Song')
+    print('4: Filter by Genre')
+    print('5: Filter by Duration')
+    print('-1: Go Back To Main Menu')
+    print()
 
-# Artist Menu Choices
-ADD_ARTIST = 1
-DELETE_ARTIST = 2
-SEARCH_ARTIST = 3
-GET_ARTISTS = 4
-ARTIST_MENU_BACK = -1
 
-# Genre Menu Choices
-ADD_GENRE = 1
-DELETE_GENRE = 2
-SEARCH_GENRE = 3
-GET_GENRE_DETAILS = 4
-GET_GENRE = 5
-GENRE_MENU_BACK = -1
+def print_artist_menu():
+    print()
+    print('Music Collection - Artist Menu')
+    print('------------------------------')
+    print('1: Create Artist')
+    print('2: Delete Artist')
+    print('3: Search Artist')
+    print('4: Get List of Artist')
+    print('-1: Go Back To Main Menu')
+    print()
 
-# Statistics Menu Choices
-ALBUMS_COUNT = 1
-SONG_COUNT = 2
-ARTIST_COUNT = 3
-GENRE_COUNT = 4
-AVERAGE_SONG_DURATION = 5
-LONGEST_SONG = 6
-SHORTEST_SONG = 7
-STATISTICS_MENU_BACK = -1
+def print_genre_menu():
+    print()
+    print('Music Collection - Genre Menu')
+    print('------------------------------')
+    print('1: Create Genre')
+    print('2: Delete Genre')
+    print('3: Get All Genres')
+    print('-1:Go Back To Main Menu')
+    print()
 
-def album_menu():
+def print_statistics_menu():
+    print()
+    print('Music Collection - Statistics Menu')
+    print('------------------------------')
+    print('1: Album Count')
+    print('2: Song Count')
+    print('3: Artist Count')
+    print('4: Genre Count')
+    print('5: Average Song Duration on Album')
+    print('6: Longest Song on Album')
+    print('7: Shortest Song on Album')
+    print('-1: Go Back To Main Menu')
+    print()
+
+def get_main_menu_choice():
+    print_main_menu()
+
+
+def get_album_menu_choice():
     pass
 
-def song_menu():
+def get_song_menu_choice():
     pass
 
-def artist_menu():
+def get_artist_menu_choice():
     pass
 
-def genre_menu():
+def get_genre_menu_choice():
     pass
 
-def statistics_menu():
+def get_statistics_menu_choice():
     pass
 
 def main():
+    # initialize the user's choice
+    choice = 0
+
+    while choice != constants.Constants.QUIT:
+        choice = get_main_menu_choice()
+
     pass
 
 if __name__ == "__main__":
