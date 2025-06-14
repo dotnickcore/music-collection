@@ -1,28 +1,70 @@
-class Menu:
-    def __init__(self, title, options):
-        self.title = title
-        self.options = options
+def load_main_menu():
+    print()
+    print('Music Collection - Main Menu')
+    print('------------------------------')
+    print('1: Go To Album Management Menu')
+    print('2: Go To Song Management Menu')
+    print('3: Go To Artist Management Menu')
+    print('4: Go To Genre Management Menu')
+    print('5: Go To Statistic Menu')
+    print('-1: Exit Application')
+    print()
 
-class MainMenu(Menu):
-    def __init__(self):
-        pass
+def load_album_menu():
+    print()
+    print('Music Collection - Album Menu')
+    print('------------------------------')
+    print('1: Create Album')
+    print('2: Delete Album')
+    print('3: Search Album')
+    print('4: Get List of Albums')
+    print('-1: Go Back To Main Menu')
+    print()
 
-class AlbumMenu(Menu):
-    def __init__(self):
-        pass
+def load_song_menu():
+    print()
+    print('Music Collection - Song Menu')
+    print('------------------------------')
+    print('1: Create Song')
+    print('2: Delete Delete')
+    print('3: Search Song')
+    print('4: Filter by Genre')
+    print('5: Filter by Duration')
+    print('-1: Go Back To Main Menu')
+    print()
 
-class SongMenu(Menu):
-    def __init__(self):
-        pass
 
-class ArtistMenu(Menu):
-    def __init__(self):
-        pass
+def load_artist_menu():
+    print()
+    print('Music Collection - Artist Menu')
+    print('------------------------------')
+    print('1: Create Artist')
+    print('2: Delete Artist')
+    print('3: Search Artist')
+    print('4: Get List of Artist')
+    print('-1: Go Back To Main Menu')
+    print()
 
-class GenreMenu(Menu):
-    def __init__(self):
-        pass
+def load_genre_menu():
+    print()
+    print('Music Collection - Genre Menu')
+    print('------------------------------')
+    print('1: Create Genre')
+    print('2: Delete Genre')
+    print('3: Get All Genres')
+    print('-1:Go Back To Main Menu')
+    print()
 
-class MenuManager():
-    def __init__(self):
-        pass
+def load_statistics_menu():
+    print()
+    print('Music Collection - Statistics Menu')
+    print('------------------------------')
+    print('1: Album Count')
+    print('2: Song Count')
+    print('3: Artist Count')
+    print('4: Genre Count')
+    print('5: Average Song Duration on Album')
+    print('6: Longest Song on Album')
+    print('7: Shortest Song on Album')
+    print('-1: Go Back To Main Menu')
+    print()
